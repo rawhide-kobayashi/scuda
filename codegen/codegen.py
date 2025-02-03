@@ -933,11 +933,12 @@ def prefix_std(type: str) -> str:
 # List of possible directories to search for header files
 COMMON_INCLUDE_DIRS = [
     "./",
-    "/usr/include/",
-    "/usr/local/include/",
+    "/opt/cuda/targets/x86_64-linux/include/",
     "/usr/local/cuda/include/",
     "/opt/cuda/include/",
     "/usr/include/nvidia/",
+    "/usr/include/",
+    "/usr/local/include/"
 ]
 
 
@@ -956,7 +957,8 @@ def main():
     options = ParserOptions(
         preprocessor=make_gcc_preprocessor(
             defines=["CUBLASAPI="],
-            include_paths=["/usr/local/cuda/include"],
+            #include_paths=["/usr/local/cuda/include"],
+            include_paths=COMMON_INCLUDE_DIRS
         ),
     )
 

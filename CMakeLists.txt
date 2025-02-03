@@ -87,7 +87,7 @@ set_target_properties(${CLIENT_OUTPUT} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 add_executable(${SERVER_OUTPUT} ${SERVER_SOURCES} ${SERVER_HEADERS})
 target_include_directories(${SERVER_OUTPUT} PRIVATE ${CUDAToolkit_INCLUDE_DIRS})
 target_link_libraries(${SERVER_OUTPUT} PRIVATE ${CUDAToolkit_LIBRARIES} cuda)
-target_link_libraries(${SERVER_OUTPUT} PRIVATE ${CUDART_LIBRARY} ${CUBLAS_LIBRARY} ${CUDNN_LIBRARY} ${NVML_LIBRARY})
+target_link_libraries(${SERVER_OUTPUT} PRIVATE ${CUDART_LIBRARY} ${CUBLAS_LIBRARY} ${CUDNN_LIBRARY} ${NVML_LIBRARY} /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1/libstdc++.so)
 
 set_source_files_properties(
     ${SERVER_SOURCES}
